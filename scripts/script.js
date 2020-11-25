@@ -1,17 +1,16 @@
 var Cliente1 = new Cliente(prompt("Diga Su Nombre"), prompt("Diga Su Edad"));
 ImprimirNombre()
+///////////////////////////////////////////////////////////////////////
 function ImprimirNombre(){
 $(".logo").append("Hola " + Cliente1.nombre);
 ConsultarEdad()
 }
 ///////////////////////////////////////////////////////////////////////
-
 function Cliente(nombre, edad){
     this.nombre = nombre;
     this.edad = edad;
 }
 ///////////////////////////////////////////////////////////////////////
-
 function MenuComidas(Comida, Precio){
     this.Comida = Comida;
     this.Precio = Precio;
