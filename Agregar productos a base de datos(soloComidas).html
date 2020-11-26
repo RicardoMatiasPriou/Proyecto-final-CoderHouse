@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="style/estilos.css">
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="reguistroDeProductos" > 
+    <input type="text" id="comida-name" placeholder="Nombre de la comida" autofocus required>
+    <input type="text" id="comida-price" placeholder="Precio de la comida" required>
+    <input type="text" id="comida-img" placeholder="Link de la img" required>
+    <button id="btn-form-register">save</button>
+</form>
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+        
+        <script>
+            // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+      apiKey: "AIzaSyB3KhN4IO-eFSnW0-R5YCrjPY5iA1Xc-Yk",
+    authDomain: "proyecto-final-71ed2.firebaseapp.com",
+    databaseURL: "https://proyecto-final-71ed2.firebaseio.com",
+    projectId: "proyecto-final-71ed2",
+    storageBucket: "proyecto-final-71ed2.appspot.com",
+    messagingSenderId: "551788436915",
+    appId: "1:551788436915:web:ab3dfe2a1ed487953dffc6",
+    measurementId: "G-FT6G73QBF7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>
+<script defer src="pepe.js"></script>
+
+</body>
+</html>

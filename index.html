@@ -29,12 +29,11 @@
         <div class="destinationList" id="comidass">
 
         </div>
-    </section>
-            <section class="destination" id="Bebidas" >
-                <div>
-                    <h2 class="titleText" >Bebidas:</h2>              
-                </div>
-                <div class="destinationList" >
+    
+            <div class="content" id="Bebidasss" >
+                <h2 class="titleText" >Bebidas:</h2>              
+            </div>
+            <div class="destinationList" id="Bebidas">
                     <div class="box">
                         <div class="imgBx">
                             <img src="productos/salta.jpg" class="fitBg1">
@@ -58,7 +57,7 @@
                     <div class="content">
                         <h2>Cerveza Quilmes <br> <span>Pecio= $60</span></h2>                    
                     </div>
-                </div>
+                    </div>
                 </div>
                 <button id="btn-abrir-popup" class="btn">Ordenar</button>
             </section>
@@ -71,7 +70,8 @@
                 <div class="contenedor-inputs">
 				        <form action="" id="Consultor">
                             <label>Que desea comer?
-                                <input list="productos" name="myBrowser" id="productoSeleccionado" ></label>
+                                <input list="productos" name="myBrowser" id="productoSeleccionado" required >
+                            </label>
                                 <datalist id="productos">
                                   <option value="Sandwich de Milanesa">
                                   <option value="Pancho">
@@ -102,6 +102,31 @@
     <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script defer src="scripts/popup.js"></script>
     <script defer src="scripts/script.js"></script>    
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyB3KhN4IO-eFSnW0-R5YCrjPY5iA1Xc-Yk",
+    authDomain: "proyecto-final-71ed2.firebaseapp.com",
+    databaseURL: "https://proyecto-final-71ed2.firebaseio.com",
+    projectId: "proyecto-final-71ed2",
+    storageBucket: "proyecto-final-71ed2.appspot.com",
+    messagingSenderId: "551788436915",
+    appId: "1:551788436915:web:ab3dfe2a1ed487953dffc6",
+    measurementId: "G-FT6G73QBF7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+</script>
 </body>
 </html>

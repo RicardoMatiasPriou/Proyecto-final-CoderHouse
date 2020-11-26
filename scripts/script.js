@@ -1,17 +1,41 @@
-///////////////////////////////////////////////////////////////////////////
-function MenuComidass(Comida, Precio, Img,){
-    this.Comida = Comida;
-    this.Precio = Precio;
-    this.Img = Img
-}
-var comidass1 = new MenuComidass("Pancho","$45","productos/destination1.jpg");
-var comidass2 = new MenuComidass("Papuchas","$30","productos/destination2.jpg");
-var comidass3 = new MenuComidass("Sandwich de Milanesa","$60","productos/destination3.jpg");
+const db = firebase.firestore()
 
-var comidas = [comidass1, comidass2, comidass3] ;
+////////////////////////////  IMPORTAR BASE DE DATOS  ///////////////////////////////////////////////
+
+const getComidas = () => db.collection('Comidas').get();
+
+window.addEventListener('DOMContentLoaded', async(e) => {
+    const querySnapshot = await getComidas()
+    querySnapshot.forEach(doc =>{
+        console.log(doc.data());
+        
+        var img = doc.data().img
+        var comida = doc.data().name
+        var precio = doc.data().price
+        var tex1 = '<div class="box"><div class="imgBx"><img src="' +img+'"class="fitBg1"></div><div class="content"><h2>'+comida+'<br><span>Pecio='+precio+'</span></h2></div></div>';
+        $("#comidass").append(tex1);
+    });
+})
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
 var Cliente1 = []
 usuario()
 
@@ -22,7 +46,6 @@ function usuario(){
         Cliente1 = JSON.parse(localStorage.getItem("name"))
         ImprimirNombreUno()
         ConsultarEdad()
-        New()
 
     }
     else
@@ -32,7 +55,6 @@ function usuario(){
     localStorage.setItem("name", JSON.stringify(Cliente1))
         ImprimirNombre()
         ConsultarEdad()
-        New()
         
 }}
 ///////////////////////////////////////////////////////////////////////
@@ -53,9 +75,9 @@ function ConsultarEdad(){
 }
 
     else{
-        var div = document.getElementById("Bebidas");
-        div.innerHTML = ""
-        $("#Bebidass").remove();
+        $("#Bebidasss").empty();
+        $("#Bebidas").empty();
+        $(".Bebidass").remove();
 
         alert( "Sos menor de edad productos bloquedados")
 }}
@@ -110,15 +132,6 @@ function Ordenar(){
 
 
 
-function New(){ 
-    for(var i = 0; i < comidas.length; i++){
-        var img = comidas[i].Img
-        var comida = comidas[i].Comida
-        var precio = comidas[i].Precio
-        var tex1 = '<div class="box"><div class="imgBx"><img src="' +img+'"class="fitBg1"></div><div class="content"><h2>'+comida+'<br><span>Pecio='+precio+'</span></h2></div></div>';
-        $("#comidass").append(tex1);
-    }
-}
 
 
 
