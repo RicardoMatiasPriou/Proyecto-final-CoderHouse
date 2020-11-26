@@ -178,7 +178,8 @@ section
     z-index: 1;
     background: linear-gradient(to bottom, #111, transparent);
 }
-.destination{
+.destination
+{
     text-align: center;
 }
 .destination .content

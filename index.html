@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="style/estilos.css">
-    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script defer src="scripts/script.js"></script>    
+
 </head>
 <body>
     <section class="header" >
@@ -23,96 +22,67 @@
                 <p>Los mejores sandwiches de la ciudad</p> 
             </div>
     </section>
-    <section class="destination" id="destination">
+    <section class="destination" >
         <div class="content">
-            <h2 class="titleText">Productos:</h2>
-  
+            <h2 class="titleText">Productos:</h2>  
         </div>
-        <div class="destinationList">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="productos/destination1.jpg" class="fitBg1">
-                </div>
-                <div class="content">
-                    <h2>Panchos <br> <span>Pecio= $45</span></h2>                    
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="productos/destination2.jpg" class="fitBg1">
-                </div>
-                <div class="content">
-                    <h2>Papuchas <br> <span>Pecio= $30</span></h2>                    
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="productos/destination3.jpg" class="fitBg1">
-                </div>
-                <div class="content">
-                    <h2>Sandwich de Milanesa<br> <span>Pecio= $60</span></h2>                    
-                </div>
-            </div>
+        <div class="destinationList" id="comidass">
+
         </div>
-            <div class="content" id="Bebidas">
-                <h2 class="titleText" >Bebidas:</h2>              
-            </div>
-            <div class="destinationList" id="Bebidass">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="productos/salta.jpg" class="fitBg1">
+    </section>
+            <section class="destination" id="Bebidas" >
+                <div>
+                    <h2 class="titleText" >Bebidas:</h2>              
                 </div>
-                <div class="content">
-                    <h2>Cerveza Salta <br> <span>Pecio= $30</span></h2>                    
+                <div class="destinationList" >
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="productos/salta.jpg" class="fitBg1">
+                        </div>
+                    <div class="content">
+                        <h2>Cerveza Salta <br> <span>Pecio= $30</span></h2>                    
+                    </div>
                 </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
+                <div class="box">
+                    <div class="imgBx">
                     <img src="productos/corona.jpg" class="fitBg1">
+                    </div>
+                    <div class="content">
+                        <h2>Cerveza Corona <br> <span>Pecio= $30</span></h2>                    
+                    </div>
                 </div>
-                <div class="content">
-                    <h2>Cerveza Corona <br> <span>Pecio= $30</span></h2>                    
+                <div class="box">
+                    <div class="imgBx">
+                        <img src="productos/quilmes.jpg" class="fitBg1">
+                    </div>
+                    <div class="content">
+                        <h2>Cerveza Quilmes <br> <span>Pecio= $60</span></h2>                    
+                    </div>
                 </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="productos/quilmes.jpg" class="fitBg1">
                 </div>
-                <div class="content">
-                    <h2>Cerveza Quilmes <br> <span>Pecio= $60</span></h2>                    
-                </div>
-            </div>
-        </div>
-        <button id="btn-abrir-popup" class="btn">Ordenar</button>
+                <button id="btn-abrir-popup" class="btn">Ordenar</button>
+            </section>
 
 
         <div class="overlay" id="overlay">
 			<div class="popup" id="popup">
 				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-				<h3>SUSCRIBETE</h3>
-				<h4>y recibe un cupon de descuento.</h4>
-				<form action="">
-					<div class="contenedor-inputs">
-						<div class="contenedor-inputs">
-                            Productos:
-                            <select name="select1" id="productoSeleccionado">
-                                <option value="" disabled selected> --Seleccione una comida--</option>
-                                <optgroup label="Comidas">
-                                <option value="Sandwich de Milanesa">Sandwich de Milanesa</option>
-                                <option value="Pancho">Panchos</option>
-                                <option value="Papuchas">Papuchas</option>
-                            </optgroup>
-                            <optgroup label="Bebidas">
-                                <option value="salta" id="Bebidas">Salta</option>
-                                <option value="quilmes" id="Bebidas">Quilmes</option>
-                                <option value="salta" id="Bebidas">Corona</option>                                
-                            </optgroup>
-                            </select>
-                        </div>
-						<input type="email" placeholder="Correo">
-					</div>
-					<button onclick="Ordenar()"> Consultar precio</button>
-				</form>
+				<h3>Registrate</h3>
+                <div class="contenedor-inputs">
+				        <form action="" id="Consultor">
+                            <label>Que desea comer?
+                                <input list="productos" name="myBrowser" id="productoSeleccionado" ></label>
+                                <datalist id="productos">
+                                  <option value="Sandwich de Milanesa">
+                                  <option value="Pancho">
+                                  <option value="Papucha">
+                                  <option class="Bebidass" value ="Corona">
+                                  <option class="Bebidass" value ="Quilmes">
+                                  <option class="Bebidass" value ="Salta">
+                                </datalist>
+                                <button type="button" onclick="Ordenar()"> Consultar precio</button>
+                        </form>
+                </div> 
 			</div>
         </div>
         
@@ -129,7 +99,9 @@
         <h4 class="copyrightText"><a href="https://www.instagram.com/ricardo_priou/">Ricardo Matias Priou Borla</a></h4>
     </section>
 
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script defer src="scripts/popup.js"></script>
-    
+    <script defer src="scripts/script.js"></script>    
+
 </body>
 </html>
