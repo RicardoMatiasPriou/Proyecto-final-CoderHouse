@@ -11,8 +11,22 @@
 
 </head>
 <body>
+    
     <section class="header" >
-        <h2 class="logo" id="name" ></h2>    
+        <div class="action">
+            <div class="profile" onclick="menuToggle()">
+                <img src="img/usuario.png" alt="Ususario"  >
+            </div>
+        
+            <div class="menu">
+                <h3 id="name"></h3>
+                <ul>
+                    <li><img src="img/carrito-de-compras.png" ><h5>Ver Carrito</h5></li>
+                    <li></li>
+                    <li class="center" onclick="limpiarStoraje()"><img src="img/cerrar-sesion.png" ><h5>Salir</h5></li>
+                </ul>
+            </div>
+        </div> 
     </section>
 
     <section class="banner">
@@ -99,6 +113,13 @@
         <h4 class="copyrightText"><a href="https://www.instagram.com/ricardo_priou/">Ricardo Matias Priou Borla</a></h4>
     </section>
 
+<!-- //////////SCRIPTS//////////////////////////////// -->    
+    <script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu')
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
     <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script defer src="scripts/popup.js"></script>
     <script defer src="scripts/script.js"></script>    

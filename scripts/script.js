@@ -62,11 +62,11 @@ function usuario(){
 ///////////////////////////////////////////////////////////////////////
 function ImprimirNombre(){
     alert("Hola " + Cliente1.nombre)
-    $(".logo").append("Hola " + Cliente1.nombre);
+    $("#name").append("Hola " + Cliente1.nombre);
 }
 function ImprimirNombreUno(){
     alert("Hola de nuevo " + Cliente1.nombre)
-    $(".logo").append("Hola " + Cliente1.nombre);
+    $("#name").append("Hola " + Cliente1.nombre);
 }
 ///////////////////////////////////////////////////////////////////////
 function ConsultarEdad(){
@@ -128,7 +128,10 @@ function Ordenar(){
         if(comidaEncontrada == 0){
         alert("La comida no se encontró")}
 }
-
+function limpiarStoraje(){
+    localStorage.clear();  
+    location.reload();
+}
 
 
 
