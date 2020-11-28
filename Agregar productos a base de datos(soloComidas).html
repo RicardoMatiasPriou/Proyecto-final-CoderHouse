@@ -12,14 +12,13 @@
     <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 <body>
-<form id="reguistroDeProductos" > 
+<form id="reguistroDeProductos" enctype="multipart/form-data" > 
     <input type="text" id="comida-name" placeholder="Nombre de la comida" autofocus required>
     <input type="text" id="comida-price" placeholder="Precio de la comida" required>
-    <input type="text" id="comida-img" placeholder="Link de la img" required>
+    <input type="file" id="comida-img">
     <button id="btn-form-register">save</button>
 </form>
-
-
+<h1><a href="index.html">Volver</a></h1>
 
 
 
@@ -29,9 +28,11 @@
     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+    
+<script>
         
-        <script>
-            // Your web app's Firebase configuration
+// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
       apiKey: "AIzaSyB3KhN4IO-eFSnW0-R5YCrjPY5iA1Xc-Yk",
