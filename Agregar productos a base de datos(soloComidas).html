@@ -1,54 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>ADMIN</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- 
-    <link rel="stylesheet" href="style/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" href="style/estilos.css">
-    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<form id="reguistroDeProductos" enctype="multipart/form-data" > 
-    <input type="text" id="comida-name" placeholder="Nombre de la comida" autofocus required>
-    <input type="text" id="comida-price" placeholder="Precio de la comida" required>
-    <input type="file" id="comida-img">
-    <button id="btn-form-register">save</button>
-</form>
-<h1><a href="index.html">Volver</a></h1>
+    <div class="container">
+        <form id="reguistroDeProductos" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="NombreDelNuevoProducto">Nombre del Producto</label>
+                <input type="text" class="form-control" id="NombreDelNuevoProducto" placeholder="Nombre" required
+                    autofocus>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="Categorias1">Categoria</label>
+                    <select class="form-control" id="Categoria1" required>
+                        
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="Categoria2">Sub Categoria 1</label>
+                    <select class="form-control" id="Categoria2" required>
+                        
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="Categoria3">Sub Categoria 2</label>
+                    <select class="form-control" id="Categoria3" required>
+                        
+                    </select>
+                </div>
+                <div class="dropdown show">
+                    <label for="dropdownMenuLink">agregar Categorias</label>
+                    <a class="btn btn-secondary dropdown-toggle form-control" href="#" role="button"
+                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        +
+                    </a>
 
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" id="new-Categoria1" onclick="NewCategoria1()">Categoria</a>
+                        <a class="dropdown-item" id="new-Categoria2" onclick="NewCategoria2()">Sub Categoria 1</a>
+                        <a class="dropdown-item" id="new-Categoria3" onclick="NewCategoria3()">Sub Categoria 2</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="col-sm-3 my-1">
+                    <label for="PrecioPorUnidad">Precio por unidad</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="number" class="form-control" id="PrecioPorUnidad" placeholder="Precio por unidad"
+                            min=0 required>
+                    </div>
+                </div>
+                <div class="col-sm-3 my-1">
+                    <label for="PrecioPorDocena">Precio por docena</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="number" class="form-control" id="PrecioPorDocena" placeholder="Precio por docena"
+                            min=0>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comida-img">Imagen del Producto</label>
+                <input class="form-control" type="file" id="comida-img">
 
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" id="btnformSumit">save</button>
+        </form>
+    </div><br>
+    <div class="conteiner ">
+        <a class="btn btn-primary" href="index.html">Volver</a>
+    </div>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
-    
-<script>
-        
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-      apiKey: "AIzaSyB3KhN4IO-eFSnW0-R5YCrjPY5iA1Xc-Yk",
-    authDomain: "proyecto-final-71ed2.firebaseapp.com",
-    databaseURL: "https://proyecto-final-71ed2.firebaseio.com",
-    projectId: "proyecto-final-71ed2",
-    storageBucket: "proyecto-final-71ed2.appspot.com",
-    messagingSenderId: "551788436915",
-    appId: "1:551788436915:web:ab3dfe2a1ed487953dffc6",
-    measurementId: "G-FT6G73QBF7"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-</script>
-<script defer src="pepe.js"></script>
+    <script defer src="js/CargarDatosApp.js"></script>
 
 </body>
+
 </html>
