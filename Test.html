@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puevas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <button onclick="hola()">hola</button>
+    <section id="popups">
+        <div class="overlay active" id="overlay">
+            <div class="popup active" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"
+                        onclick="Remove()"></i></a>
+                <form id="reguistroDeProductos" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h1>PRODCUTO</h1><br>
+                        <img src="productos/corona.jpg" alt="ProductoAComorar">
+
+
+                    <div class="form-row ">
+                        <div class="col-sm-2 my-2">
+                            <label for="PrecioPorDocena">Cantidad</label>
+                            <div class="input-group">
+                                </div>
+                                <input type="number" class="form-control" id="PrecioPorDocena"
+                                    placeholder="Precio por docena" min=0 autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" id="btnformSumit">Comprar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>
+
+<div class="box" data-name="'+comida+'">
+    <div class="imgBx"><img src="' + img + '" onclick="Test()" class="fitBg1"></div>
+    <div class="content">
+        <h2>' + comida + '<br><span>Pecio=' + precioXUnidad + '</span></h2>
+    </div>
+</div>
