@@ -31,14 +31,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             $("#comidass").append(texXunidad);
         }
     });
-    productosss = document.querySelectorAll('div.box')
-    productosss.forEach(function (item) {
-        item.addEventListener('click', function () {
-            var compra = '<div class="overlay active" id="overlay"><div class="popup active" id="popup"><p id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"onclick="Remove()"></i></p><form onchange="Pretotal()"id="Compra" enctype="multipart/form-data"><div class="form-group"><h1>' + item.dataset.name + '</h1><br><img src="' + item.dataset.img + '" alt="ProductoAComorar"><div class="form-row "><div class="col-sm-2 my-2"><label for="Cantidad">Cantidad</label><div class="input-group"></div><input type="number" class="form-control" id="Cantidad"placeholder="Indique la cantidad deseada" min=0 autofocus><br><br><h5 id="TotalaPagar"><h5></div></div></div><button class="btn btn-primary btn-lg btn-block" id="AgregarAlCarrito" type="button" onclick="AgreagrNuevaCompra()">Comprar</button></form></div></div>'
-            productoSelect = item.dataset.name
-            $("#PopUps").append(compra);
-        })
-    })
+    CompraParcial()
     const AgregarCategoria2 = arrayCategoria2.unique()
     AgregarCategoria2.forEach(function (element) {
         $("#SelectorDeCAtegorias").prepend('<li><p class="dropdown-item" data-categroria1="' + element + '">' + element + '</p></li>');
@@ -78,9 +71,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
                     }
                 }
+                CompraParcial()
             });
 
         })
+
     })
 })
 /////////////////////////    Usuario    ///////////////////////////////////////////////////
@@ -177,7 +172,16 @@ function Pretotal() {
     h5Detotal.empty()
     h5Detotal.append('Total $' + MontoPretotal)
 }
-
+function CompraParcial(){
+    productosss = document.querySelectorAll('div.box')
+    productosss.forEach(function (item) {
+        item.addEventListener('click', function () {
+            var compra = '<div class="overlay active" id="overlay"><div class="popup active" id="popup"><p id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"onclick="Remove()"></i></p><form onchange="Pretotal()"id="Compra" enctype="multipart/form-data"><div class="form-group"><h1>' + item.dataset.name + '</h1><br><img src="' + item.dataset.img + '" alt="ProductoAComorar"><div class="form-row "><div class="col-sm-2 my-2"><label for="Cantidad">Cantidad</label><div class="input-group"></div><input type="number" class="form-control" id="Cantidad"placeholder="Indique la cantidad deseada" min=0 autofocus><br><br><h5 id="TotalaPagar"><h5></div></div></div><button class="btn btn-primary btn-lg btn-block" id="AgregarAlCarrito" type="button" onclick="AgreagrNuevaCompra()">Comprar</button></form></div></div>'
+            productoSelect = item.dataset.name
+            $("#PopUps").append(compra);
+        })
+    })
+}
 
 
 ///https://api.whatsapp.com/send?phone=5493876335621&text=
