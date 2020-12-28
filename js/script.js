@@ -20,11 +20,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         var precioXUnidad = doc.data().precioXUnidad
         var precioXDocena = doc.data().precioXDocena
         var img = doc.data().img
-        var texXunidad = '<div class="box" data-name="' + comida + '"data-categoria="' + categoria2 + '"data-img="' + img + '" ><div class="imgBx"><img src="' + img + '" class="fitBg1"></div><div class="content"><h2>' + comida + '<br><span>Pecio=$' + precioXUnidad + '</span></h2></div></div>';
+        var texXunidad = '<div class="box" data-name="' + comida + '"data-categoria1="' + categoria1 + '""data-categoria="' + categoria2 + '"data-img="' + img + '" ><div class="imgBx"><img src="' + img + '" class="fitBg1"></div><div class="content"><h2>' + comida + '<br><span>Pecio=$' + precioXUnidad + '</span></h2></div></div>';
         arrayCategoria2.push(doc.data().categoria2)
         ///////// Agregar Tarjeta de Producto /////////
         if (precioXDocena != '') {
-            var texXdocena = '<div class="box" data-name="' + comida + '"data-categoria="' + categoria2 + '" data-img="' + img + '"><div class="imgBx"><img src="' + img + '" class="fitBg1"></div><div class="content"><h2>' + comida + '<br><span>Pecio x Unidad=$' + precioXUnidad + '</span><br><span>Pecio X Docena=$' + precioXDocena + '</span></h2></div></div>';
+            var texXdocena = '<div class="box" data-name="' + comida + '"data-categoria1="' + categoria1 + '""data-categoria="' + categoria2 + '" data-img="' + img + '"><div class="imgBx"><img src="' + img + '" class="fitBg1"></div><div class="content"><h2>' + comida + '<br><span>Pecio x Unidad=$' + precioXUnidad + '</span><br><span>Pecio X Docena=$' + precioXDocena + '</span></h2></div></div>';
             $("#comidass").append(texXdocena);
 
         } else {
@@ -119,10 +119,13 @@ function Remove() {
 function ConsultarEdad() {
     if (Cliente1.edad > 17) {
         ImprimirNombre()
+        console.log(productosss);
     } else {
+        console.log(productosss);
         productosss.forEach(function (item) {
-            if (item.dataset.categoria == 'Bebida 18') {
+            if (item.dataset.categoria1 == 'Bebida 18') {
                 item.remove()
+                console.log(productosss);
             } else {}
 
         })
