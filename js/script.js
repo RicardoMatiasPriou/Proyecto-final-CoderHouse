@@ -153,9 +153,17 @@ function AgreagrNuevaCompra() {
     const formDeCompra = document.getElementById("Compra")
     var NdeProductos = formDeCompra['Cantidad'].value
     if (NdeProductos != '') {
+        Pretotal()
         console.log(productoSelect, NdeProductos)
+        const name = productoSelect;
+        const email = NdeProductos;
+        const age = MontoPretotal;
+        writeUserData(name, email, age);
         Remove()
-        window.location.assign('https://api.whatsapp.com/send?phone=5493876183456&text=Hola%20me%20llamo%20' + Cliente1.nombre + '%20quisiera%20pedir%20' + NdeProductos + '%20' + productoSelect + ',el total es $' + MontoPretotal)
+        
+    
+    
+    
     } else {
         Remove()
     }
@@ -185,10 +193,30 @@ function CompraParcial(){
         })
     })
 }
+function writeUserData(name, email, age) {
+    const id = generateUUID();
+    firebase.database().ref(`users/${id}`).set({
+      name,
+      email,
+      age
+    });
+  }
+function generateUUID() {
+    let d = new Date().getTime();
+    const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+};
+  
 
 
 ///https://api.whatsapp.com/send?phone=5493876335621&text=
 /////////////   CARITO DE COMPRAS    /////////////////////
+///        window.location.assign('https://api.whatsapp.com/send?phone=5493876183456&text=Hola%20me%20llamo%20' + Cliente1.nombre + '%20quisiera%20pedir%20' + NdeProductos + '%20' + productoSelect + ',el total es $' + MontoPretotal)
+
 /* function AgreagrNuevaCompra() {
     console.log(querySnapshot);
     const formDeCompra = document.getElementById("Compra")    
