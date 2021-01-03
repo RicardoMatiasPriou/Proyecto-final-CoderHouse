@@ -28,9 +28,6 @@ function writeUserData(name, email, age) {
 readUserData();
 
 // Shortcuts to DOM Elements.
-const $nameInput = document.getElementById('name');
-const $emailInput = document.getElementById('email');
-const $ageInput = document.getElementById('age');
 const $usersList = document.getElementById('usersList');
 
 
@@ -49,7 +46,6 @@ function refreshUI(users) {
     const tRow =
       `
         <tr>
-          <th scope="row">${key}</th>
           <td>${users[key].name}</td>
           <td>${users[key].email}</td>
           <td>$ ${users[key].age}</td>

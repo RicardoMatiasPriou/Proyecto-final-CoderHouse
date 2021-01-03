@@ -1,3 +1,18 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyB3KhN4IO-eFSnW0-R5YCrjPY5iA1Xc-Yk",
+    authDomain: "proyecto-final-71ed2.firebaseapp.com",
+    databaseURL: "https://proyecto-final-71ed2.firebaseio.com",
+    projectId: "proyecto-final-71ed2",
+    storageBucket: "proyecto-final-71ed2.appspot.com",
+    messagingSenderId: "551788436915",
+    appId: "1:551788436915:web:ab3dfe2a1ed487953dffc6",
+    measurementId: "G-FT6G73QBF7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+var carrito = []
+
 Array.prototype.unique = function (a) {
     return function () {
         return this.filter(a)
@@ -149,7 +164,8 @@ var carrito = []
 var MontoPretotal
 var arrayCategoria2 = []
 
-function AgreagrNuevaCompra() {
+function AgreagrNuevaCompra(evt) {
+    evt.preventDefault()
     const formDeCompra = document.getElementById("Compra")
     var NdeProductos = formDeCompra['Cantidad'].value
     if (NdeProductos != '') {
@@ -159,7 +175,11 @@ function AgreagrNuevaCompra() {
         const email = NdeProductos;
         const age = MontoPretotal;
         writeUserData(name, email, age);
+
+        carrito.push(new NuevoProductoAlCarrito(name, email, age))
         Remove()
+        console.log(carrito.length);
+        console.log(carrito);
         
     
     
@@ -168,7 +188,11 @@ function AgreagrNuevaCompra() {
         Remove()
     }
 }
-
+function NuevoProductoAlCarrito(name, email, age) {
+    this.name = name;
+    this.email = email;
+    this.age = age;
+}
 function Pretotal() {
     const formDeCompra = document.getElementById("Compra")
     var NdeProductos = formDeCompra['Cantidad'].value
@@ -187,7 +211,7 @@ function CompraParcial(){
     productosss = document.querySelectorAll('div.box')
     productosss.forEach(function (item) {
         item.addEventListener('click', function () {
-            var compra = '<div class="overlay active" id="overlay"><div class="popup active" id="popup"><p id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"onclick="Remove()"></i></p><form onchange="Pretotal()"id="Compra" enctype="multipart/form-data"><div class="form-group"><h1>' + item.dataset.name + '</h1><br><img src="' + item.dataset.img + '" height="267px" width="267px" alt="ProductoAComorar"><div class="form-row "><div class="col-sm-2 my-2"><label for="Cantidad">Cantidad</label><div class="input-group"></div><input type="number" class="form-control" id="Cantidad"placeholder="Indique la cantidad deseada" min=0 autofocus><br><br><h5 id="TotalaPagar"><h5></div></div></div><button class="btn btn-primary btn-lg btn-block" id="AgregarAlCarrito" type="button" onclick="AgreagrNuevaCompra()">Comprar</button></form></div></div>'
+            var compra = '<div class="overlay active" id="overlay"><div class="popup active" id="popup"><p id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"onclick="Remove()"></i></p><form onchange="Pretotal()"id="Compra" enctype="multipart/form-data"><div class="form-group"><h1>' + item.dataset.name + '</h1><br><img src="' + item.dataset.img + '" height="267px" alt="Producto A Comprar"><div class="form-row "><div class="col-sm-2 my-2"><label for="Cantidad">Cantidad</label><div class="input-group"></div><input type="number" class="form-control" id="Cantidad"placeholder="Indique la cantidad deseada" min=0 autofocus><br><br><h5 id="TotalaPagar"><h5></div></div></div><button class="btn btn-primary btn-lg btn-block" id="AgregarAlCarrito" onclick="AgreagrNuevaCompra(event)">Comprar</button></form></div></div>'
             productoSelect = item.dataset.name
             $("#PopUps").append(compra);
         })
@@ -210,7 +234,31 @@ function generateUUID() {
     });
     return uuid;
 };
-  
+
+let tBody = '';
+let TotalFianl = 0
+const $usersList = document.getElementById('usersList');
+function refreshTabla() {
+    tBody = ''
+    TotalFianl = 0
+    carrito.forEach(function (e) {
+       console.log( carrito);
+
+       TotalFianl = TotalFianl + e.age
+        const tRow =
+            `
+          <tr>
+            <td>${e.name}</td>
+            <td>${e.email}</td>
+            <td>$ ${e.age}</td>
+          </tr>
+        `;
+        tBody += tRow;
+    });
+
+    console.log(tBody);
+
+}
 
 
 ///https://api.whatsapp.com/send?phone=5493876335621&text=
